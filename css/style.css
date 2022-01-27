@@ -5,7 +5,7 @@
 }
 
 :root {
-    --first-color: #FA1406;
+    --first-color: #ffffff;
     --second-color: #D2C7BE;
 }
 
@@ -34,20 +34,7 @@ body {
 
 }
 
-.change-color {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 20px;
-    font-size: 22px;
-    cursor: pointer;
-    color: var(--second-color);
-    transition: color .3s;
-}
 
-.change-color:hover {
-    color: var(--first-color);
-}
 
 .info {
     position: absolute;
@@ -162,6 +149,7 @@ button:focus {
     width: 200px;
     background-color: var(--first-color);
     transition: background-color .3s;
+    cursor: pointer;
 }
 
 .modal .close:hover {
@@ -178,6 +166,90 @@ button:focus {
     }
 
     to {
-        opacity: 0;
+        opacity: 1;
     }
+}
+
+.change-color {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--second-color);
+    transition: color .3s;
+}
+
+.change-color:hover {
+    color: var(--first-color);
+}
+
+.colors {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: -500px;
+    width: 60px;
+    height: 300px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: transform .2s;
+    
+}
+
+.color {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid black;
+
+    transition: background-color .3s, box-shadow .3s;
+}
+
+.show-colors {
+    transform: translateX(500px);
+}
+
+.one {
+    background-color: #FA1406;
+    box-shadow: 0 0 8px #FA1406;
+}
+
+.two {
+    background-color: #9edb2c;
+    box-shadow: 0 0 8px #9edb2c;
+}
+
+.three {
+    background-color: #1b96dd;
+    box-shadow: 0 0 8px #1b96dd;
+}
+
+.four {
+    background-color: #ebd831;
+    box-shadow: 0 0 8px #ebd831;
+}
+
+.one:hover {
+    background-color: #ad1c14;
+    box-shadow: 0 0 16px #ad1c14;
+}
+
+.two:hover {
+    background-color: #73a021;
+    box-shadow: 0 0 16px #73a021;
+}
+
+.three:hover {
+    background-color: #18618b;
+    box-shadow: 0 0 16px #18618b;
+}
+
+.four:hover {
+    background-color: #9c9025;
+    box-shadow: 0 0 16px #9c9025;
 }
