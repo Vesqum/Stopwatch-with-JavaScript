@@ -16,7 +16,12 @@ let countTime;
 let minutes = 0;
 let secounds = 0;
 
+
+let timeArr = [];
+
 const handleStart = () => {
+
+    clearInterval(countTime);
 
     countTime = setInterval(() => {
 
@@ -35,6 +40,59 @@ const handleStart = () => {
     }, 100)
 }
 
+const handlePause = () => {
+    clearInterval(countTime);
+}
+
+const handleStop = () => {
+
+    time.innerHTML = `Ostatni czas: ${stopwatch.textContent}`
+    
+    if(stopwatch.textContent !== '0:00') {
+        time.getElementsByClassName.visiblility = 'visible';
+        timeArr.push(stopwatch.textContent)
+        console.log(timeArr);
+    }
+    clearStuff();
+    
 
 
-startBtn.addEventListener('click', handleStart)
+}
+
+const handleReset = () => {
+    time.getElementsByClassName.visiblility = 'hidden';
+    timeArr = [];
+    clearStuff();
+}
+
+const clearStuff = () => {
+
+    clearInterval(countTime);
+    stopwatch.textContent = '0:00'
+    timeList.textContent = '';
+    secounds = 0;
+    minutes = 0;
+}
+
+
+const showHistory = () => {
+    
+    timeList.textContent = ''
+    let num = 0;
+
+    timeArr.forEach(time => {
+        const newTime = document.createElement('li');
+        newTime.innerHTML = `Pomiar nr ${num}: <span>${time}</span>`
+        
+        timeList.appendChild(newTime)
+        num++;
+    })
+}
+
+
+startBtn.addEventListener('click', handleStart);
+pauseBtn.addEventListener('click', handlePause);
+stopBtn.addEventListener('click', handleStop);
+restBtn.addEventListener('click', handleReset);
+historyBtn.addEventListener('click', showHistory);
+
